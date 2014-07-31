@@ -4,8 +4,8 @@ class PeopleController < ApplicationController
 
 	def index
 		@person = Person.new
-		@person.first_name = "Matt"
-		@person.last_name = "Darby"
+		@person.first_name = “Josh”
+		@person.last_name = “Schultz”
 		@person.save
 		@count = Person.count
 	end
