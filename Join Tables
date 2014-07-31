@@ -1,0 +1,21 @@
+Join Tables
+
+create_table :order_stores do |t|
+	t.integer :store_id
+	t.integer :order_id
+end
+
+class OrderStore < ActiveRecord::Base
+	belongs_to :store
+	belongs_to :order
+end
+
+class Order < ActiveRecord::Base
+	has_many :order_stores
+	belongs_to :store, through: :order_stores
+end
+
+class Store < ActiveRecord::Base
+	has_many :order_stores
+	has_many :orders, through: :order_stores
+end
